@@ -3,9 +3,12 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/camp_app?characterEncoding=utf8
     username: docker
     password: docker
-    driverClassName: com.mysql.jdbc.Driver
+    driverClassName: com.mysql.cj.jdbc.Driver
   jackson:
     property-naming-strategy: SNAKE_CASE
   logging:
     level:
       root: INFO
+      Exposed: DEBUG
+  Exposed:
+    show-sql: true

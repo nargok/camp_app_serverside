@@ -7,12 +7,12 @@ import org.springframework.stereotype.Repository
 import org.springframework.transaction.annotation.Transactional
 
 @Repository
-class MemberRepositoryImpl(
-) : MemberRepository {
+class MemberRepositoryImpl: MemberRepository {
+    private val crudEntity = MemberEntity
 
     @Transactional
     override fun getMemberList(): List<Member> {
-        return MemberEntity.all().map { toModel(it) }
+        return crudEntity.all().map { toModel(it) }
     }
 
     private fun toModel(entity: MemberEntity): Member {
