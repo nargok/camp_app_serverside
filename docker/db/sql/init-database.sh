@@ -3,4 +3,4 @@
 #sleep 90s
 
 #run the setup script to create the DB and the schema in the DB
-mysql -u docker -pdocker exposed_example < "/docker-entrypoint-initdb.d/0001-create-member.sql"
+mysql -u docker -pdocker camp_app < "/docker-entrypoint-initdb.d/0001-create-member.sql"
