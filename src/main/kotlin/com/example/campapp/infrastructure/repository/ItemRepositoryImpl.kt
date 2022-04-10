@@ -12,9 +12,15 @@ import org.springframework.transaction.annotation.Transactional
 class ItemRepositoryImpl : ItemRepository {
     private val crudEntity = ItemEntity
 
-    @Transactional
     override fun getItemList(): List<Item> {
         return crudEntity.all().map { toModel(it) }
+    }
+
+    override fun register(item: Item) {
+        crudEntity.new {
+            name = item.name
+            weight = item.weight
+        }
     }
 
     private fun toModel(entity: ItemEntity): Item {

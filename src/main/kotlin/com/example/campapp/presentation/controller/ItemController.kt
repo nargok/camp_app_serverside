@@ -1,12 +1,11 @@
 package com.example.campapp.presentation.controller
 
 import com.example.campapp.application.service.ItemService
+import com.example.campapp.domain.model.Item
 import com.example.campapp.presentation.form.ItemInfo
 import com.example.campapp.presentation.form.ItemListResponse
-import org.springframework.web.bind.annotation.CrossOrigin
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import com.example.campapp.presentation.form.ItemRegisterRequest
+import org.springframework.web.bind.annotation.*
 
 
 @RestController
@@ -21,5 +20,11 @@ class ItemController(
             ItemInfo(it)
         }
         return ItemListResponse(itemList)
+    }
+
+    @PostMapping("/register")
+    fun register(@RequestBody request: ItemRegisterRequest) {
+        val dummyId = 99999L
+        itemService.registerItem(Item(dummyId, request.name, request.weight))
     }
 }

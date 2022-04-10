@@ -11,3 +11,8 @@ data class ItemInfo(
 ) {
     constructor(model: Item): this(model.id as Long, model.name, model.weight)
 }
+
+data class ItemRegisterRequest(
+    val name: String,
+    val weight: Int
+)

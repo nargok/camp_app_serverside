@@ -8,9 +8,10 @@ import org.springframework.web.cors.CorsConfigurationSource
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource
 
 @EnableWebSecurity
-class SecurityConfig : WebSecurityConfigurerAdapter(){
+class SecurityConfig : WebSecurityConfigurerAdapter() {
     override fun configure(http: HttpSecurity) {
-        http.cors()
+        http.csrf().disable()
+            .cors()
             .configurationSource(corsConfigurationSource())
     }
 
