@@ -15,7 +15,17 @@ class ItemService(
     }
 
     @Transactional
+    fun getItem(itemId: Long): Item? {
+        return itemRepository.getItem(itemId)
+    }
+
+    @Transactional
     fun registerItem(item: Item) {
         itemRepository.register(item)
+    }
+
+    @Transactional
+    fun updateItem(item: Item) {
+        itemRepository.update(item)
     }
 }

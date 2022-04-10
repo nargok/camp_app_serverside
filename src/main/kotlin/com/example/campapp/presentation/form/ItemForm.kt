@@ -16,3 +16,9 @@ data class ItemRegisterRequest(
     val name: String,
     val weight: Int
 )
+
+data class ItemUpdateRequest(
+    val id: Long,
+    val name: String,
+    val weight: Int
+)
