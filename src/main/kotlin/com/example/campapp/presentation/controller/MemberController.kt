@@ -4,12 +4,14 @@ import com.example.campapp.application.service.MemberService
 import com.example.campapp.domain.model.Member
 import com.example.campapp.presentation.form.MemberInfo
 import com.example.campapp.presentation.form.MemberListResponse
+import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController()
 @RequestMapping("/member")
+@CrossOrigin
 class MemberController(
     private val memberService: MemberService
 ) {
