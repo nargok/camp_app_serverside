@@ -1,12 +1,11 @@
 package com.example.campapp.presentation.controller
 
 import com.example.campapp.application.service.ProjectService
+import com.example.campapp.domain.model.Project
 import com.example.campapp.presentation.form.ProjectInfo
 import com.example.campapp.presentation.form.ProjectListResponse
-import org.springframework.web.bind.annotation.CrossOrigin
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import com.example.campapp.presentation.form.ProjectRegisterRequest
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("project")
@@ -22,5 +21,26 @@ class ProjectController(
         }
 
         return ProjectListResponse(projectList)
+    }
+
+    @GetMapping("/{id}")
+    fun getProject(@PathVariable("id") projectId: Long): ProjectInfo? {
+        val targetProject = projectService.getProject(projectId)
+        return targetProject?.let { ProjectInfo(it) }
+    }
+
+    @PostMapping("/register")
+    fun register(@RequestBody request: ProjectRegisterRequest) {
+        val dummyId = 9999L
+        projectService.register(
+            Project(
+                dummyId,
+                request.title,
+                request.place,
+                request.startDate,
+                request.endDate,
+                request.memo
+            )
+        )
     }
 }

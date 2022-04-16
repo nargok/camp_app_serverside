@@ -18,16 +18,30 @@ class ProjectRepositoryImpl: ProjectRepository {
         return targetProject?.let { toModel(it) }
     }
 
-    override fun register() {
-        TODO("Not yet implemented")
+    override fun register(project: Project) {
+        crudEntity.new {
+            title = project.title
+            place = project.place
+            start_date = project.startDate
+            end_date = project.endDate
+            memo = project.memo
+        }
     }
 
-    override fun update() {
-        TODO("Not yet implemented")
+    override fun update(project: Project) {
+        val targetProject = crudEntity.findById(project.id)
+        targetProject?.let {
+            it.title = project.title
+            it.place = project.place
+            it.start_date = project.startDate
+            it.end_date = project.endDate
+            it.memo = project.memo
+        }
     }
 
-    override fun delete() {
-        TODO("Not yet implemented")
+    override fun delete(id: Long) {
+        val targetProject = crudEntity.findById(id)
+        targetProject?.delete()
     }
 
     private fun toModel(entity: ProjectEntity): Project {

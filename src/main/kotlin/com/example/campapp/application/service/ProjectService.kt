@@ -20,4 +20,19 @@ class ProjectService(
         return projectRepository.getProject(id)
     }
 
+    @Transactional
+    fun register(project: Project) {
+        projectRepository.register(project)
+    }
+
+    @Transactional
+    fun update(project: Project) {
+        projectRepository.update(project)
+    }
+
+    @Transactional
+    fun delete(id: Long) {
+        projectRepository.delete(id)
+    }
+
 }

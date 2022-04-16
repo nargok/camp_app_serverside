@@ -7,9 +7,9 @@ interface ProjectRepository {
 
     fun getProject(id: Long): Project?
 
-    fun register()
+    fun register(project: Project)
 
-    fun update()
+    fun update(project: Project)
 
-    fun delete()
+    fun delete(id: Long)
 }
