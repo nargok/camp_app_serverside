@@ -58,4 +58,9 @@ class ProjectController(
             )
         )
     }
+
+    @DeleteMapping("/{id}")
+    fun delete(@PathVariable id: Long) {
+        projectService.delete(id)
+    }
 }
