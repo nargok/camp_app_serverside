@@ -8,8 +8,8 @@ import org.jetbrains.exposed.sql.`java-time`.date
 
 
 object ProjectTable : LongIdTable("project") {
-    val title = varchar("name", 255)
-    val place = varchar("name", 255)
+    val title = varchar("title", 255)
+    val place = varchar("place", 255)
     val start_date = date("start_date")
     val end_date = date("end_date")
     val memo = text("memo")
