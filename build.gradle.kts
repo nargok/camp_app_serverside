@@ -22,6 +22,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.jetbrains.exposed:exposed-spring-boot-starter:0.37.3")
+	implementation("org.jetbrains.exposed:exposed-java-time:0.30.1")
 	implementation("mysql:mysql-connector-java:8.0.23")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
