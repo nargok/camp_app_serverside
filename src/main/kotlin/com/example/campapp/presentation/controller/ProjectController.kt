@@ -5,6 +5,7 @@ import com.example.campapp.domain.model.Project
 import com.example.campapp.presentation.form.ProjectInfo
 import com.example.campapp.presentation.form.ProjectListResponse
 import com.example.campapp.presentation.form.ProjectRegisterRequest
+import com.example.campapp.presentation.form.ProjectUpdateRequest
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -35,6 +36,20 @@ class ProjectController(
         projectService.register(
             Project(
                 dummyId,
+                request.title,
+                request.place,
+                request.startDate,
+                request.endDate,
+                request.memo
+            )
+        )
+    }
+
+    @PutMapping("/update")
+    fun update(@RequestBody request: ProjectUpdateRequest) {
+        projectService.update(
+            Project(
+                request.id,
                 request.title,
                 request.place,
                 request.startDate,
