@@ -3,7 +3,7 @@ package com.example.campapp.presentation.form
 import com.example.campapp.domain.model.Project
 import java.time.LocalDate
 
-data class ProjectListResponse(val itemList: List<ProjectInfo>)
+data class ProjectListResponse(val projectList: List<ProjectInfo>)
 
 data class ProjectInfo(
     val id: Long,
